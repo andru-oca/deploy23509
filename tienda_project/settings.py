@@ -39,6 +39,12 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += CUSTOM_APPS + EXTERNALS_APPS
 
+
+CUSTOM_MIDDLEWARES = [
+    "tienda_app.cors.CorsMiddlewareMixin"
+]
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -48,6 +54,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MIDDLEWARE += CUSTOM_MIDDLEWARES
+
 
 ROOT_URLCONF = "tienda_project.urls"
 
